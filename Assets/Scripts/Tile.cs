@@ -15,11 +15,7 @@ public class Tile : MonoBehaviour
     public TileType currentType;
     
     private SpriteRenderer sr;
-    
-    private Color basicColor = Color.gray;
-    private Color plusColor = Color.blue;
-    private Color minusColor = Color.red;
-
+  
     private bool basicTile;
     private bool plusTile;
     private bool minusTile;
