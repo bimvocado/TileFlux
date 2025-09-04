@@ -4,10 +4,10 @@ using UnityEngine;
 public enum TileType
 {
     Gray, //기본
-    Blud, //점수 +10
+    Green, //점수 +10
     Red, //점수 -10
     Yellow, //점수 +- 20
-    Green, //5초간 red에 대하여 무적
+    Blue, //5초간 red에 대하여 무적
     Purple //순간이동
 }
 public class Tile : MonoBehaviour
@@ -24,7 +24,14 @@ public class Tile : MonoBehaviour
     {
         sr = GetComponent<SpriteRenderer>();
     }
-
+    
+    private void OnMouseDown()  // 마우스로 클릭했을 때 실행
+    {
+        // 타입을 순환시킴
+        currentType = (TileType)(((int)currentType + 1) % System.Enum.GetValues(typeof(TileType)).Length);
+        SetTileType(currentType);
+    }
+    
     public void SetTileType(TileType newType)
     {
         currentType = newType;
@@ -34,8 +41,8 @@ public class Tile : MonoBehaviour
             case TileType.Gray:
                 sr.color = Color.gray;
                 break;
-            case TileType.Blud:
-                sr.color = Color.blue;
+            case TileType.Green:
+                sr.color = Color.green;
                 break;
             case TileType.Red:
                 sr.color = Color.red;
@@ -43,15 +50,12 @@ public class Tile : MonoBehaviour
             case TileType.Yellow:
                 sr.color = Color.yellow;
                 break;
-            case TileType.Green:
-                sr.color = Color.green;
+            case TileType.Blue:
+                sr.color = Color.blue;
                 break;
             case TileType.Purple:
                 sr.color = Color.magenta;
                 break;
-        }
-        {
-            
         }
     }
 }

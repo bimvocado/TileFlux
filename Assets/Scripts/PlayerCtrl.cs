@@ -10,6 +10,7 @@ public class PlayerCtrl : MonoBehaviour
     
     private void Start()
     {
+        x = y = 7;
         rb = GetComponent<Rigidbody2D>();
         rb.position = new Vector2(x, y);
     }
